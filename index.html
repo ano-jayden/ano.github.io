@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculators</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-size: 1.2em;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Financial Calculator</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Investment Calculator</h5>
+                        <p class="card-text">Calculate the interest on your investment (simple or compound).</p>
+                        <form action="/calculate_investment" method="post">
+                            <div class="form-group">
+                                <label for="investmentAmount">Initial Investment Amount</label>
+                                <input type="number" class="form-control" id="investmentAmount" name="investmentAmount" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="interestRate">Interest Rate (in %)</label>
+                                <input type="number" class="form-control" id="interestRate" name="interestRate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="investmentYears">Number of Years</label>
+                                <input type="number" class="form-control" id="investmentYears" name="investmentYears" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="interestType">Interest Type</label>
+                                <select class="form-control" id="interestType" name="interestType" required>
+                                    <option value="simple">Simple Interest</option>
+                                    <option value="compound">Compound Interest</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate Investment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Bond Calculator</h5>
+                        <p class="card-text">Calculate the monthly repayment on a home loan.</p>
+                        <form action="/calculate_bond" method="post">
+                            <div class="form-group">
+                                <label for="houseValue">Present Value of House</label>
+                                <input type="number" class="form-control" id="houseValue" name="houseValue" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bondInterestRate">Interest Rate (in %)</label>
+                                <input type="number" class="form-control" id="bondInterestRate" name="bondInterestRate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="yearsToRepay">Number of Years to Repay</label>
+                                <input type="number" class="form-control" id="yearsToRepay" name="yearsToRepay" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate Bond</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="result" class="result">
+            <!-- Results will be displayed here after calculation -->
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
