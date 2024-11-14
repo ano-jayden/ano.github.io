@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Task Manager Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #333;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        pre {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 5px solid #ccc;
+            overflow: auto;
+        }
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task Manager Documentation</h1>
+    </header>
+    
+    <section>
+        <h2>Overview</h2>
+        <p>This Python program is a task manager that allows users to manage tasks. It includes user authentication, task creation, and viewing capabilities. There are different functionalities based on user roles, such as the ability to register new users and view statistics.</p>
+    </section>
+
+    <section>
+        <h2>Features</h2>
+        <ul>
+            <li>User Authentication: Users can log in with their username and password.</li>
+            <li>Task Management: Create new tasks, view all tasks, and view tasks assigned to the logged-in user.</li>
+            <li>Admin Privileges: Only admin users can register new users and view statistics.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Program Workflow</h2>
+        <ol>
+            <li>User logs in with a username and password.</li>
+            <li>After login, users are presented with a menu of options:</li>
+            <ul>
+                <li><code>r</code> - Register a new user (admin only)</li>
+                <li><code>a</code> - Add a new task</li>
+                <li><code>va</code> - View all tasks</li>
+                <li><code>vm</code> - View tasks assigned to the logged-in user</li>
+                <li><code>s</code> - Display statistics (admin only)</li>
+                <li><code>e</code> - Exit the program</li>
+            </ul>
+        </ol>
+    </section>
+    
+    <section>
+        <h2>Code Snippets</h2>
+        <div class="code-block">
+            <h3>Validate Date Function</h3>
+            <pre><code>def validate_date(date_text, format='%Y-%m-%d'):
+    try:
+        datetime.datetime.strptime(date_text, format)
+        return True
+    except ValueError:
+        return False
+</code></pre>
+        </div>
+        
+        <div class="code-block">
+            <h3>Load Users Function</h3>
+            <pre><code>def load_users():
+    users = {}
+    try:
+        with open('user.txt', 'r') as file:
+            for line in file:
+                user, passw = line.strip().split(', ')
+                users[user] = passw
+    except FileNotFoundError:
+        print("User file not found. Please ensure 'user.txt' is in the correct location.")
+    return users
+</code></pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>File Structure</h2>
+        <ul>
+            <li><strong>user.txt:</strong> Stores user credentials in the format <code>username, password</code>.</li>
+            <li><strong>tasks.txt:</strong> Stores tasks in the format <code>user, title, description, due date, date assigned, completion status</code>.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Running the Program</h2>
+        <p>To run the program, ensure that <code>user.txt</code> and <code>tasks.txt</code> files are in the same directory as the Python script. Use a terminal or command prompt to execute the script:</p>
+        <pre><code>python task_manager.py</code></pre>
+    </section>
+
+    <footer>
+        <p>Created by Anotidaishe Nyakutira</p>
+    </footer>
+</body>
+</html>
